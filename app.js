@@ -3,6 +3,7 @@ const cors = require("cors");
 const express = require("express");
 const models = require("./models");
 const path = require("path");
+const { Sequelize } = require("sequelize");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const booksRouter = require("./routes/books");
