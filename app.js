@@ -31,6 +31,9 @@ const sequelize = new Sequelize({
   storage: path.join(__dirname, "bookie.db"),
 });
 
+console.log("Current __dirname:", __dirname);
+console.log("DB path:", path.join(__dirname, "bookie.db"));
+
 app.use("/books", booksRouter);
 app.use("/bookshelves", shelvesRouter);
 app.use("/reviews", reviewsRouter);
