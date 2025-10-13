@@ -13,12 +13,19 @@ const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const booklikesRouter = require("./routes/booklikes");
 
+// JSON 파서 등록
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// CORS 응답 헤더 설정
+// CORS 수동 헤더 설정 (조건부)
+// 모든 요청에 Access~Origin을 붙이면 express가 일부 요청을 이상하게 처리
+// 특히 파비콘이나 정적 요청 등에서 req.headers.origin이 없을 수도 있기 때문
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://mnxx2.github.io");
-  res.header("Access-Control-Allow-Credentials", "true");
+  const allowedOrigin = "https://mnxx2.github.io";
+  if (req.headers.origin === allowedOrigin) {
+    res.header("Access-Control-Allow-Origin", allowedOrigin);
+    res.header("Access-Control-Allow-Credentials", "true");
+  }
   next();
 });
 
