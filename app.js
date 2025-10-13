@@ -15,6 +15,13 @@ const booklikesRouter = require("./routes/booklikes");
 
 app.use(express.json());
 
+// CORS 응답 헤더 설정
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://mnxx2.github.io");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 // CORS 설정
 app.use(
   cors({
