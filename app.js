@@ -24,10 +24,7 @@ app.use(
 // SQLite 설정
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: path.join(
-    __dirname,
-    "C:FullStackWeb/2nd_Mini_Project_Bookie/bookie_portfolio/backend/bookie.db"
-  ),
+  storage: path.join(__dirname, "backend\bookie.db"),
 });
 
 app.use(express.json());
