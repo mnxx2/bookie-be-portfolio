@@ -12,11 +12,13 @@ const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const booklikesRouter = require("./routes/booklikes");
 
+app.use(express.json());
+
 // CORS 설정
 app.use(
   cors({
     // origin: "http://localhost:3000",
-    origin: "https://bookie-be.azurewebsites.net",
+    origin: "https://mnxx2.github.io",
     credentials: true,
   })
 );
@@ -24,10 +26,8 @@ app.use(
 // SQLite 설정
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: path.join(__dirname, "backend\bookie.db"),
+  storage: path.join(__dirname, "bookie.db"),
 });
-
-app.use(express.json());
 
 app.use("/books", booksRouter);
 app.use("/bookshelves", shelvesRouter);
