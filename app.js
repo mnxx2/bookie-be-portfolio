@@ -15,20 +15,20 @@ const booklikesRouter = require("./routes/booklikes");
 // CORS 설정
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    origin: "https://bookie-be.azurewebsites.net",
     credentials: true,
   })
 );
 
 // SQLite 설정
-/* const sequelize = new Sequelize({
+const sequelize = new Sequelize({
   dialect: "sqlite",
   storage: path.join(
     __dirname,
     "C:FullStackWeb/2nd_Mini_Project_Bookie/bookie_portfolio/backend/bookie.db"
   ),
 });
-*/
 
 app.use(express.json());
 
